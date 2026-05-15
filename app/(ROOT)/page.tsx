@@ -1,8 +1,12 @@
+"use client";
+
 import HomeAudioList from "@/components/HomeAudioList";
 import MusicPlayBar from "@/components/MusicPlayBar";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
+import useMergeAudio from "@/hooks/useMergeAudio";
 
 const Page = () => {
+  const { mergeAndDownload } = useMergeAudio();
   return (
     <div className="relative h-full w-full">
       <MusicPlayBar />
@@ -15,12 +19,11 @@ const Page = () => {
               mixing 4 active layers for "Midnight Rain"
             </div>
           </div>
-          <div>
-            <div>
-              <ul>
-                <li>hii</li>
-              </ul>
-            </div>
+          <div
+            onClick={mergeAndDownload}
+            className="text-white p-3 hover:bg-[#333] rounded-2xl bg-[#1A1A1A] flex items-center gap-2 cursor-pointer"
+          >
+            <Download />
           </div>
         </nav>
         <div className="h-[60vh] overflow-auto no-scrollbar mt-8">
